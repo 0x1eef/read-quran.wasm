@@ -8,15 +8,16 @@ used from JavaScript in the web browser.
 At compile time, the contents of The Qur'an are embedded into the source
 using a compile-time Rust macro - by the name `include_str!`. Since the
 WebAssembly module includes The Qur'an within itself, there's no need to
-make additional web requests or use other methods to source the contents of The Qur'an.
-
+make additional web requests or use other methods to source the contents
+of The Qur'an.
 
 Two languages are provided: the original Arabic, and an english translation.
 
 ## Demo
 
-This library is being used on [0x1eef.github.io/read-quran](https://0x1eef.github.io/read-quran) - a simple web page that allows one to read a randomly selected chapter from The Qur'an.
-
+This library is being used on [0x1eef.github.io/read-quran](https://0x1eef.github.io/read-quran) -
+a simple web page that allows one to read a randomly selected chapter from
+The Qur'an.
 
 ## Examples
 
@@ -24,7 +25,8 @@ This library is being used on [0x1eef.github.io/read-quran](https://0x1eef.githu
 
 Despite the library itself being written in Rust, the intention is for it
 to be used from JavaScript. In order to do this, one has to import a
-wasm module - although it relies on modern JavaScript features, it is straight forward:
+wasm module - although it relies on modern JavaScript features, it is
+straight forward:
 
 ```javascript
 import init, { Quran, Language } from "read-quran.js";
@@ -51,7 +53,8 @@ run();
 **2. Set a language**
 
 An instance of "Quran" represents The Qur'an in a particular language. At
-the moment there are two options: `Language.Arabic`, and `Language.English`. For example:
+the moment there are two options: `Language.Arabic`, and `Language.English`.
+For example:
 
 ```javascript
 /* The Qur'an, in the English language. */
