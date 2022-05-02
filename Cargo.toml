@@ -1,0 +1,16 @@
+[package]
+name = "read-quran"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.5"
+getrandom = { version = "0.2.6", features = ["js"]}
+json = "0.12.4"
+wasm-bindgen = { version = "0.2" }
+js-sys = "0.3.51"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
