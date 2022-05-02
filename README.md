@@ -64,7 +64,7 @@ quran = new Quran(Language.Arabic);
 
 **3. Find a random chapter**
 
-An instance of Quran provides a "randomChapter" method that can randomly
+An instance of "Quran" provides a "randomChapter" method that can randomly
 select a chapter. For example:
 
 
@@ -79,7 +79,7 @@ console.log("The random chapter number is: ", chapter.number);
 
 **4. Find a random verse**
 
-An instance of Chapter provides a "randomVerse" method that can randomly
+An instance of "Chapter" provides a "randomVerse" method that can randomly
 select a verse from the associated chapter. For example:
 
 ```javascript
