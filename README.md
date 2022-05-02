@@ -15,7 +15,7 @@ Two languages are provided: the original Arabic, and an English translation.
 
 ## Demo
 
-read_quran.rs is being used on [0x1eef.github.io/read-quran](https://0x1eef.github.io/read-quran) -
+read-quran.rs is being used on [0x1eef.github.io/read-quran](https://0x1eef.github.io/read-quran) -
 a simple web page that allows one to read a randomly selected chapter from
 The Qur'an.
 
