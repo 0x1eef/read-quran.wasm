@@ -1,6 +1,6 @@
-# read_quran.rs
+# read-quran.rs
 
-read_quran.rs is a Rust library, and WebAssembly module that provides
+read-quran.rs is a Rust library, and WebAssembly module that provides
 an interface for both querying and reading the holy book, The Qur'an.
 The library is available as a WebAssembly module; that means it can be
 used from JavaScript in the web browser.
@@ -88,7 +88,19 @@ const verse = chapter.randomVerse();
 console.log("The random verse number is: ", chapter.number, ":", verse.number);
 ```
 
+## Credit, and thanks
+
+Special credit, and thanks is due to https://sacred-texts.com, and
+https://quran.com for providing the original Arabic, and English translations - respectively.
+
+## Related
+
+[0x1eef/The Qur'an](https://github.com/0x1eef/The-Qur-an) provides the
+contents of The Qur'an in its original Arabic, and as a English translation - using the JSON format. This might also be of interest
+to you.
+
 ## LICENSE
 
 The Rust code found within this repository is released according to
-the MIT license. See [./LICENSE.txt](LICENSE.txt) for more details.
+the MIT license. <br>
+See [./LICENSE.txt](LICENSE.txt) for more details.
