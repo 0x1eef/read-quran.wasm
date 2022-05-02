@@ -31,23 +31,18 @@ straight forward:
 ```javascript
 import init, { Quran, Language } from "read_quran.js";
 
-async function run() {
-  /* At this point, the web assembly module is not loaded. */
-  await init()
-  /* At this point, the web assembly module is loaded. */
+/* Wait until the WebAssembly module is loaded. */
+await init();
 
-  /* Create an instance of "Quran" (with Arabic as the language) */
-  const quran = new Quran(Language.Arabic);
+/* Create an instance of "Quran" (with Arabic as the language) */
+const quran = new Quran(Language.Arabic);
 
-  /* Print every verse, from every chapter */
-  quran.chapters.forEach((chapter) => {
-    chapter.verses.forEach((verse) => {
-      console.log(chapter.number, ":", verse.number, " ", verse.text);
-    });
+/* Print every verse, from every chapter */
+quran.chapters.forEach((chapter) => {
+  chapter.verses.forEach((verse) => {
+    console.log(chapter.number, ":", verse.number, " ", verse.text);
   });
-};
-
-run();
+});
 ```
 
 **2. Set a language**
@@ -57,6 +52,9 @@ the moment there are two options: `Language.Arabic`, and `Language.English`.
 For example:
 
 ```javascript
+import init, { Quran, Language } from "read_quran.js";
+await init();
+
 /* The Qur'an, in the English language. */
 let quran = new Quran(Language.English);
 
@@ -71,6 +69,9 @@ select a chapter. For example:
 
 
 ```javascript
+import init, { Quran, Language } from "read_quran.js";
+await init();
+
 const quran = new Quran(Language.Arabic);
 const chapter = quran.randomChapter();
 console.log("The random chapter number is: ", chapter.number);
@@ -82,6 +83,9 @@ An instance of Chapter provides a "randomVerse" method that can randomly
 select a verse from the associated chapter. For example:
 
 ```javascript
+import init, { Quran, Language } from "read_quran.js";
+await init();
+
 const quran = new Quran(Language.Arabic);
 const chapter = quran.randomChapter();
 const verse = chapter.randomVerse();
