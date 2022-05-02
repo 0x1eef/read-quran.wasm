@@ -11,11 +11,11 @@ WebAssembly module includes The Qur'an within itself, there's no need to
 make additional web requests or use other methods to source the contents
 of The Qur'an.
 
-Two languages are provided: the original Arabic, and an english translation.
+Two languages are provided: the original Arabic, and an English translation.
 
 ## Demo
 
-This library is being used on [0x1eef.github.io/read-quran](https://0x1eef.github.io/read-quran) -
+read_quran.rs is being used on [0x1eef.github.io/read-quran](https://0x1eef.github.io/read-quran) -
 a simple web page that allows one to read a randomly selected chapter from
 The Qur'an.
 
