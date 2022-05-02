@@ -1,6 +1,6 @@
 # read_quran.rs
 
-read-quran.rs is a Rust library, and WebAssembly module that provides
+read_quran.rs is a Rust library, and WebAssembly module that provides
 an interface for both querying and reading the holy book, The Qur'an.
 The library is available as a WebAssembly module; that means it can be
 used from JavaScript in the web browser.
@@ -29,7 +29,7 @@ wasm module - although it relies on modern JavaScript features, it is
 straight forward:
 
 ```javascript
-import init, { Quran, Language } from "read-quran.js";
+import init, { Quran, Language } from "read_quran.js";
 
 async function run() {
   /* At this point, the web assembly module is not loaded. */
