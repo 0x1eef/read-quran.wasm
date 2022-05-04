@@ -1,4 +1,4 @@
-static MAX_SIZE: usize = 114;
+const CHAPTER_COUNT: usize = 114;
 
 use js_sys::Array;
 use js_sys::JsString;
@@ -23,14 +23,14 @@ impl Quran {
         };
 
         /* Fill "quran.chapters" */
-        for number in 1..MAX_SIZE {
+        for number in 0..CHAPTER_COUNT {
             let mut chapter = Chapter {
-                number: number,
+                number: number + 1,
                 _verses: vec![],
             };
 
             /* Fill "chapter.verses" */
-            let verses = &quran.json_blob[number - 1];
+            let verses = &quran.json_blob[number];
             for verse in verses.members() {
                 let number = verse[0].as_usize().unwrap();
                 let text = JsString::from(verse[1].as_str().unwrap());
