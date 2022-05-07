@@ -17,7 +17,7 @@ use wasm_bindgen::prelude::*;
 #[wasm_bindgen]
 pub struct Quran {
     _chapters: Vec<Chapter>,
-    json_blob: json::JsonValue,
+    contents: json::JsonValue,
 }
 
 #[wasm_bindgen]
@@ -31,7 +31,7 @@ impl Quran {
 
         let mut quran = Quran {
             _chapters: vec![],
-            json_blob: json::parse(&contents).unwrap()
+            contents: json::parse(&contents).unwrap()
         };
 
         /* Fill "quran.chapters" */
@@ -42,7 +42,7 @@ impl Quran {
             };
 
             /* Fill "chapter.verses" */
-            let verses = &quran.json_blob[number];
+            let verses = &quran.contents[number];
             for verse in verses.members() {
                 let number = verse[0].as_usize().unwrap();
                 let text = JsString::from(verse[1].as_str().unwrap());
