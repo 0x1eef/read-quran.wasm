@@ -34,7 +34,9 @@ impl Quran {
             for verse in verses.members() {
                 let number = verse[0].as_usize().unwrap();
                 let text = JsString::from(verse[1].as_str().unwrap());
-                chapter._verses.push(Verse { number, text });
+                let copy = Chapter { number: chapter.number, _verses: vec![] };
+                let verse = Verse { number, text, chapter: copy };
+                chapter._verses.push(verse);
             }
             quran._chapters.push(chapter);
         }
@@ -58,7 +60,7 @@ impl Quran {
 }
 
 #[derive(Clone)]
-#[wasm_bindgen]
+#[wasm_bindgen(getter_with_clone)]
 pub struct Chapter {
     pub number: usize,
     _verses: Vec<Verse>,
@@ -86,6 +88,7 @@ impl Chapter {
 pub struct Verse {
     pub number: usize,
     pub text: JsString,
+    pub chapter: Chapter
 }
 
 #[wasm_bindgen]
