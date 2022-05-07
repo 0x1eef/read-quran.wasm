@@ -25,22 +25,21 @@ The Qur'an.
 
 Despite the library itself being written in Rust, the intention is for it
 to be used from JavaScript. In order to do this, one has to import a
-wasm module - although it relies on modern JavaScript features, it is
-straight forward:
+wasm module - have no fear though, it is straight forward:
 
 ```javascript
 import init, { Quran, Language } from "read_quran.js";
 
 /* Wait until the WebAssembly module is loaded. */
-await init();
+init().then(() => {
+  /* Create an instance of "Quran" (with Arabic as the language) */
+  const quran = new Quran(Language.Arabic);
 
-/* Create an instance of "Quran" (with Arabic as the language) */
-const quran = new Quran(Language.Arabic);
-
-/* Print every verse, from every chapter */
-quran.chapters.forEach((chapter) => {
-  chapter.verses.forEach((verse) => {
-    console.log(chapter.number, ":", verse.number, " ", verse.text);
+  /* Print every verse, from every chapter */
+  quran.chapters.forEach((chapter) => {
+    chapter.verses.forEach((verse) => {
+      console.log(chapter.number, ":", verse.number, " ", verse.text);
+    });
   });
 });
 ```
@@ -53,13 +52,13 @@ For example:
 
 ```javascript
 import init, { Quran, Language } from "read_quran.js";
-await init();
+init().then(() => {
+  /* The Qur'an, in the English language. */
+  let quran = new Quran(Language.English);
 
-/* The Qur'an, in the English language. */
-let quran = new Quran(Language.English);
-
-/* The Qur'an, in its original Arabic language */
-quran = new Quran(Language.Arabic);
+  /* The Qur'an, in its original Arabic language */
+  quran = new Quran(Language.Arabic);
+});
 ```
 
 **3. Find a random chapter**
@@ -70,11 +69,11 @@ select a chapter. For example:
 
 ```javascript
 import init, { Quran, Language } from "read_quran.js";
-await init();
-
-const quran = new Quran(Language.Arabic);
-const chapter = quran.randomChapter();
-console.log("The random chapter number is: ", chapter.number);
+init().then(() => {
+  const quran = new Quran(Language.Arabic);
+  const chapter = quran.randomChapter();
+  console.log("The random chapter number is: ", chapter.number);
+});
 ```
 
 **4. Find a random verse**
@@ -84,12 +83,12 @@ select a verse from the associated chapter. For example:
 
 ```javascript
 import init, { Quran, Language } from "read_quran.js";
-await init();
-
-const quran = new Quran(Language.Arabic);
-const chapter = quran.randomChapter();
-const verse = chapter.randomVerse();
-console.log("The random verse number is: ", chapter.number, ":", verse.number);
+init().then(() => {
+  const quran = new Quran(Language.Arabic);
+  const chapter = quran.randomChapter();
+  const verse = chapter.randomVerse();
+  console.log("The random verse number is: ", chapter.number, ":", verse.number);
+})();
 ```
 
 ## Credit, and thanks
