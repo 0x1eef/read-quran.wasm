@@ -1,4 +1,11 @@
-const CHAPTER_COUNT: usize = 114;
+/* The Qur'an: total number of chapters. */
+static CHAPTER_COUNT: usize = 114;
+
+/* The Qur'an: in its original Arabic. */
+static ARABIC_QURAN: &str = include_str!("../../static/quran_ar.json");
+
+/* The Qur'an: translated to English. */
+static ENGLISH_QURAN: &str = include_str!("../../static/quran_en.json");
 
 use js_sys::Array;
 use js_sys::JsString;
@@ -17,9 +24,14 @@ pub struct Quran {
 impl Quran {
     #[wasm_bindgen(constructor)]
     pub fn new(language: Language) -> Quran {
+        let contents = match language {
+            Language::Arabic => &ARABIC_QURAN,
+            Language::English => &ENGLISH_QURAN
+        };
+
         let mut quran = Quran {
             _chapters: vec![],
-            json_blob: json::parse(&read_json_blob(&language)).unwrap()
+            json_blob: json::parse(&contents).unwrap()
         };
 
         /* Fill "quran.chapters" */
@@ -111,13 +123,5 @@ impl Language {
             Language::Arabic => true,
             _ => false
         }
-    }
-}
-
-fn read_json_blob(language: &Language) -> String {
-    if language == &Language::English {
-        include_str!("../../static/quran_en.json").to_string()
-    } else {
-        include_str!("../../static/quran_ar.json").to_string()
     }
 }
